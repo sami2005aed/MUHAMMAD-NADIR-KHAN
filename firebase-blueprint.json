@@ -1,0 +1,263 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "System users including Master Admin and Sub-Agents",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string" },
+        "phone": { "type": "string" },
+        "companyName": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "role"]
+    },
+    "Client": {
+      "title": "Client",
+      "description": "Customer and client directory profiles",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "nameEn": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "passportNo": { "type": "string" },
+        "emiratesId": { "type": "string" }
+      },
+      "required": ["id", "nameEn"]
+    },
+    "Job": {
+      "title": "Job",
+      "description": "Service request and visa/licensing application workflows",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "clientId": { "type": "string" },
+        "status": { "type": "string" },
+        "price": { "type": "number" },
+        "cost": { "type": "number" },
+        "profit": { "type": "number" }
+      },
+      "required": ["id", "clientId", "status"]
+    },
+    "Transaction": {
+      "title": "Transaction",
+      "description": "Financial income and expense ledgers",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "category": { "type": "string" },
+        "amount": { "type": "number" },
+        "date": { "type": "string" }
+      },
+      "required": ["id", "type", "category", "amount"]
+    },
+    "Invoice": {
+      "title": "Invoice",
+      "description": "VAT-compliant client invoices",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "invoiceNo": { "type": "string" },
+        "clientId": { "type": "string" },
+        "total": { "type": "number" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "invoiceNo", "clientId", "total", "status"]
+    },
+    "Agreement": {
+      "title": "Agreement",
+      "description": "Bilingual legal agreements and contracts",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "serialNo": { "type": "string" },
+        "clientId": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "serialNo", "clientId", "status"]
+    },
+    "Template": {
+      "title": "Template",
+      "description": "Reusable contract templates",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" }
+      },
+      "required": ["id", "name", "category"]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "System security and administrative audit entries",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "action": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "action", "timestamp"]
+    },
+    "Document": {
+      "title": "Document",
+      "description": "Client scanned passports, visas, and trade licenses",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "url": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "name", "url"]
+    },
+    "Employee": {
+      "title": "Employee",
+      "description": "Workforce placement and typing staff records",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "nameEn": { "type": "string" },
+        "position": { "type": "string" },
+        "salary": { "type": "number" }
+      },
+      "required": ["id", "nameEn", "position"]
+    },
+    "Settings": {
+      "title": "Settings",
+      "description": "Company operational and security configuration",
+      "type": "object",
+      "properties": {
+        "companyNameEn": { "type": "string" },
+        "vatNumber": { "type": "string" }
+      },
+      "required": ["companyNameEn"]
+    },
+    "StoredFile": {
+      "title": "StoredFile",
+      "description": "Metadata for uploaded files stored in Firestore",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "filename": { "type": "string" },
+        "mimetype": { "type": "string" },
+        "size": { "type": "number" }
+      },
+      "required": ["id", "filename", "mimetype", "size"]
+    },
+    "FileChunk": {
+      "title": "FileChunk",
+      "description": "Binary payload chunk for cloud stored files",
+      "type": "object",
+      "properties": {
+        "fileId": { "type": "string" },
+        "chunkIndex": { "type": "number" },
+        "data": { "type": "string" }
+      },
+      "required": ["fileId", "chunkIndex", "data"]
+    },
+    "Supplier": {
+      "title": "Supplier",
+      "description": "External vendor, partner typing centers, medical facilities, and government service providers",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "nameEn": { "type": "string" },
+        "companyName": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "category": { "type": "string" },
+        "totalPaid": { "type": "number" },
+        "outstandingBalance": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "nameEn", "companyName", "phone", "category"]
+    },
+    "SupplierPayment": {
+      "title": "SupplierPayment",
+      "description": "Supplier vouchers, disbursements, and payment transactions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "supplierId": { "type": "string" },
+        "supplierName": { "type": "string" },
+        "amount": { "type": "number" },
+        "paymentMethod": { "type": "string" },
+        "referenceNo": { "type": "string" },
+        "date": { "type": "string" },
+        "dueDate": { "type": "string" },
+        "status": { "type": "string" },
+        "documentUrl": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "supplierId", "supplierName", "amount", "paymentMethod", "date", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "Collection of all authorized users"
+    },
+    "/clients/{clientId}": {
+      "schema": { "$ref": "#/entities/Client" },
+      "description": "Collection of clients and companies"
+    },
+    "/jobs/{jobId}": {
+      "schema": { "$ref": "#/entities/Job" },
+      "description": "Collection of service processing jobs"
+    },
+    "/transactions/{transactionId}": {
+      "schema": { "$ref": "#/entities/Transaction" },
+      "description": "Collection of financial transactions"
+    },
+    "/invoices/{invoiceId}": {
+      "schema": { "$ref": "#/entities/Invoice" },
+      "description": "Collection of invoices"
+    },
+    "/agreements/{agreementId}": {
+      "schema": { "$ref": "#/entities/Agreement" },
+      "description": "Collection of contracts"
+    },
+    "/templates/{templateId}": {
+      "schema": { "$ref": "#/entities/Template" },
+      "description": "Collection of agreement templates"
+    },
+    "/auditLogs/{logId}": {
+      "schema": { "$ref": "#/entities/AuditLog" },
+      "description": "Collection of system audit logs"
+    },
+    "/documents/{documentId}": {
+      "schema": { "$ref": "#/entities/Document" },
+      "description": "Collection of uploaded client attachments"
+    },
+    "/employees/{employeeId}": {
+      "schema": { "$ref": "#/entities/Employee" },
+      "description": "Collection of manpower placements"
+    },
+    "/settings/{settingsId}": {
+      "schema": { "$ref": "#/entities/Settings" },
+      "description": "Global settings document"
+    },
+    "/files/{fileId}": {
+      "schema": { "$ref": "#/entities/StoredFile" },
+      "description": "Uploaded file metadata"
+    },
+    "/file_chunks/{chunkId}": {
+      "schema": { "$ref": "#/entities/FileChunk" },
+      "description": "Chunks for persistent uploaded file content"
+    },
+    "/suppliers/{supplierId}": {
+      "schema": { "$ref": "#/entities/Supplier" },
+      "description": "Collection of external partners and suppliers"
+    },
+    "/supplierPayments/{paymentId}": {
+      "schema": { "$ref": "#/entities/SupplierPayment" },
+      "description": "Collection of supplier payment records and vouchers"
+    }
+  }
+}

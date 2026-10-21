@@ -1,0 +1,6 @@
+{
+  "name": "CORE LINK Administrative Services Portal",
+  "description": "Enterprise business management, typing, visa, and licensing operations portal for CORE LINK Administrative Services (Ajman, UAE).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
